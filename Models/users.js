@@ -7,13 +7,9 @@ const userSchema = new mongoose.Schema({
         trim: true,
         required: "Please enter a username",
     }, 
-    balance: {
-        type: Number,
-    }, 
+    balance: Number,
     slug: String,
-    _id: {
-        type: Number,
-    }
+    user_ranking: Number
 })
 
 userSchema.pre("save", function (next) {
@@ -24,7 +20,6 @@ userSchema.pre("save", function (next) {
     this.slug = slugify(this.username);
     next()
 });
-
 
 
 module.exports = mongoose.model("User", userSchema)
