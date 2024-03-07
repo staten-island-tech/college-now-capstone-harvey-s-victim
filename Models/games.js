@@ -13,7 +13,7 @@ const gameSchema = new mongoose.Schema({
         trim: true,
         required: "add a description"
     }
-})
+});
 
 gameSchema.pre("save", function (next) {
     if (!this.isModified("name")) {
@@ -24,4 +24,4 @@ gameSchema.pre("save", function (next) {
     next();
   });
   
-module.exports = mongoose.model("Game", gameSchema)
+module.exports = mongoose.model("Game", gameSchema);

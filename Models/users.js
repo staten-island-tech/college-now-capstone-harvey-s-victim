@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
     balance: Number,
     slug: String,
     user_ranking: Number
-})
+});
 
 userSchema.pre("save", function (next) {
     if(!this.isModified("username")) {
@@ -22,4 +22,4 @@ userSchema.pre("save", function (next) {
 });
 
 
-module.exports = mongoose.model("User", userSchema)
+module.exports = mongoose.model("User", userSchema);
