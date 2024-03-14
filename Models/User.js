@@ -12,6 +12,7 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  profile: String,
   tokens: [
     {
       token: {
