@@ -28,7 +28,7 @@
       return upload.single("photo")(req, res, () => {
         try {
            if(!req.file){
-          res.json({ success: false, msg: "Please upload a valid file type"})
+          res.json({ success: false, msg: "Please upload a valid file"})
         }
         next()
         } catch (error) {
