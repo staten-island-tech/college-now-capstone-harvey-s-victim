@@ -1,7 +1,6 @@
 const User = require("../Models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const upload = require("../Middleware/upload")
 
 require("dotenv").config({ path: "variables.env" });
 

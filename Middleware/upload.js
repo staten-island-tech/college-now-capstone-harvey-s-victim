@@ -21,5 +21,18 @@
             false;
       },
     };
-    
-    exports.upload = multer(multerOptions).single("photo");
+
+    const upload = multer(multerOptions)
+
+    module.exports.send = (req, res, next) => {
+      return upload.single("photo")(req, res, () => {
+        try {
+           if(!req.file){
+          res.json({ success: false, msg: "Please upload a valid file type"})
+        }
+        next()
+        } catch (error) {
+          res.status(500).json(error)
+        }
+      })
+    }
