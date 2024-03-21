@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const slugify = require("slugify");
 
-const gameSchema = new mongoose.Schema({
+const roomSchema = new mongoose.Schema({
     name: {
         type: String,
         trim: true,
@@ -16,9 +16,11 @@ const gameSchema = new mongoose.Schema({
     capacity: Number,
     connected: Number,
     started: Boolean,
+    multiplayer: Boolean,
+    private: Boolean
 });
 
-gameSchema.pre("save", function (next) {
+roomSchema.pre("save", function (next) {
     if (!this.isModified("name")) {
       next();
       return;
@@ -27,4 +29,4 @@ gameSchema.pre("save", function (next) {
     next();
   });
   
-module.exports = mongoose.model("Game", gameSchema);
+module.exports = mongoose.model("Room", roomSchema);
