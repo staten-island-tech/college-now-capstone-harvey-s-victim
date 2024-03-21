@@ -12,6 +12,7 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  score: Number,
   photo: String,
   tokens: [
     {
