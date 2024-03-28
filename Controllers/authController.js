@@ -48,7 +48,6 @@ exports.login = async (req, res) => {
       throw new Error("Unable to login");
     }
     //DO NOT SEND BACK Password
-
     res.send({ user, token });
   } catch (error) {
     console.log(error);
